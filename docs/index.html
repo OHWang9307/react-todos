@@ -30,7 +30,7 @@
               
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="comment">/** @jsx React.DOM */</span></pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/** @jsx React.DOM */</span></pre></div></div>
             
         </li>
         
@@ -54,11 +54,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-3">&#182;</a>
               </div>
-              <p>The <code>@jsx React.DOM</code> annotation above tells the JSXTransformer to compile
-this file as JSX. It has to be the first line in the file, which is why
-the description you&#39;re reading is below the annotation.</p>
-<h2 id="todo-model">Todo Model</h2>
-
+              
             </div>
             
         </li>
@@ -70,11 +66,11 @@ the description you&#39;re reading is below the annotation.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-4">&#182;</a>
               </div>
-              <p>Our basic <strong>Todo</strong> model has <code>title</code> and <code>done</code> attributes.</p>
+              <p>The <code>@jsx React.DOM</code> annotation above tells the JSXTransformer to compile
+this file as JSX. It has to be the first line in the file, which is why
+the description you’re reading is below the annotation.</p>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre><span class="keyword">var</span> Todo = Backbone.Model.extend({</pre></div></div>
             
         </li>
         
@@ -85,18 +81,9 @@ the description you&#39;re reading is below the annotation.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
-              <p>Default attributes for the Todo item.</p>
+              <h2 id="todo-model">Todo Model</h2>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre>  defaults: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    <span class="keyword">return</span> {
-      title: <span class="string">""</span>,
-      done: <span class="literal">false</span>
-    };
-  }
-
-});</pre></div></div>
             
         </li>
         
@@ -107,8 +94,7 @@ the description you&#39;re reading is below the annotation.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
-              <h2 id="todo-collection">Todo Collection</h2>
-
+              
             </div>
             
         </li>
@@ -120,12 +106,11 @@ the description you&#39;re reading is below the annotation.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
-              <p>The collection of Todos is backed by <em>localStorage</em> instead of a remote
-server.</p>
+              <p>Our basic <strong>Todo</strong> model has <code>title</code> and <code>done</code> attributes.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="keyword">var</span> TodoList = Backbone.Collection.extend({</pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> Todo = Backbone.Model.extend({</pre></div></div>
             
         </li>
         
@@ -136,11 +121,18 @@ server.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
-              <p>Reference to this collection&#39;s model.</p>
+              <p>Default attributes for the Todo item.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  model: Todo,</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  defaults: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> {
+      title: <span class="hljs-string">""</span>,
+      done: <span class="hljs-literal">false</span>
+    };
+  }
+
+});</pre></div></div>
             
         </li>
         
@@ -151,11 +143,9 @@ server.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
-              <p>Save all of the todo items under the <code>&quot;todos-react&quot;</code> namespace.</p>
+              <h2 id="todo-collection">Todo Collection</h2>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre>  localStorage: <span class="keyword">new</span> Backbone.LocalStorage(<span class="string">"todos-react"</span>),</pre></div></div>
             
         </li>
         
@@ -166,13 +156,8 @@ server.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-10">&#182;</a>
               </div>
-              <p>Filter down the list of all todo items that are finished.</p>
-
+              
             </div>
-            
-            <div class="content"><div class='highlight'><pre>  done: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    <span class="keyword">return</span> <span class="keyword">this</span>.where({done: <span class="literal">true</span>});
-  },</pre></div></div>
             
         </li>
         
@@ -183,15 +168,12 @@ server.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-11">&#182;</a>
               </div>
-              <p>Filter down the list to only todo items that are still not finished.</p>
+              <p>The collection of Todos is backed by <em>localStorage</em> instead of a remote
+server.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  remaining: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    <span class="keyword">return</span> <span class="keyword">this</span>.where({done: <span class="literal">false</span>});
-  }
-
-});</pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> TodoList = Backbone.Collection.extend({</pre></div></div>
             
         </li>
         
@@ -202,9 +184,11 @@ server.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-12">&#182;</a>
               </div>
-              <h2 id="backbone-react-integration">Backbone/React Integration</h2>
+              <p>Reference to this collection’s model.</p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre>  model: Todo,</pre></div></div>
             
         </li>
         
@@ -215,13 +199,11 @@ server.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-13">&#182;</a>
               </div>
-              <p>Updates React components when their Backbone resources change. Expects the
-component to implement a method called <code>getResource</code> that returns an object
-that extends <code>Backbone.Events</code>.</p>
+              <p>Save all of the todo items under the <code>&quot;todos-react&quot;</code> namespace.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="keyword">var</span> BackboneMixin = {</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  localStorage: <span class="hljs-keyword">new</span> Backbone.LocalStorage(<span class="hljs-string">"todos-react"</span>),</pre></div></div>
             
         </li>
         
@@ -232,14 +214,12 @@ that extends <code>Backbone.Events</code>.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-14">&#182;</a>
               </div>
-              <p>Listen to all events on this component&#39;s collection or model and force an
-update when they fire. Let React decide whether the DOM should change.</p>
+              <p>Filter down the list of all todo items that are finished.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  componentDidMount: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    <span class="keyword">this</span>._boundForceUpdate = <span class="keyword">this</span>.forceUpdate.bind(<span class="keyword">this</span>, <span class="literal">null</span>);
-    <span class="keyword">this</span>.getResource().on(<span class="string">"all"</span>, <span class="keyword">this</span>._boundForceUpdate, <span class="keyword">this</span>);
+            <div class="content"><div class='highlight'><pre>  done: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.where({done: <span class="hljs-literal">true</span>});
   },</pre></div></div>
             
         </li>
@@ -251,15 +231,15 @@ update when they fire. Let React decide whether the DOM should change.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-15">&#182;</a>
               </div>
-              <p>Clean up the listener when the component will be removed.</p>
+              <p>Filter down the list to only todo items that are still not finished.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  componentWillUnmount: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    <span class="keyword">this</span>.getResource().off(<span class="string">"all"</span>, <span class="keyword">this</span>._boundForceUpdate);
+            <div class="content"><div class='highlight'><pre>  remaining: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.where({done: <span class="hljs-literal">false</span>});
   }
 
-};</pre></div></div>
+});</pre></div></div>
             
         </li>
         
@@ -270,7 +250,7 @@ update when they fire. Let React decide whether the DOM should change.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-16">&#182;</a>
               </div>
-              <h2 id="todo-list-item-component">Todo List Item Component</h2>
+              <h2 id="backbone-react-integration">Backbone/React Integration</h2>
 
             </div>
             
@@ -283,11 +263,8 @@ update when they fire. Let React decide whether the DOM should change.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-17">&#182;</a>
               </div>
-              <p>The DOM for a todo item...</p>
-
+              
             </div>
-            
-            <div class="content"><div class='highlight'><pre><span class="keyword">var</span> TodoListItemComponent = React.createClass({</pre></div></div>
             
         </li>
         
@@ -298,15 +275,13 @@ update when they fire. Let React decide whether the DOM should change.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-18">&#182;</a>
               </div>
-              <p>If the component updates and is in edit mode, send focus to the <code>&lt;input&gt;</code>.</p>
+              <p>Updates React components when their Backbone resources change. Expects the
+component to implement a method called <code>getResource</code> that returns an object
+that extends <code>Backbone.Events</code>.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  componentDidUpdate: <span class="function"><span class="keyword">function</span><span class="params">(prevProps)</span> {</span>
-    <span class="keyword">if</span> (<span class="keyword">this</span>.props.editing &amp;&amp; !prevProps.editing) {
-      <span class="keyword">this</span>.refs.editInput.getDOMNode().focus();
-    }
-  },</pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> BackboneMixin = {</pre></div></div>
             
         </li>
         
@@ -317,14 +292,14 @@ update when they fire. Let React decide whether the DOM should change.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-19">&#182;</a>
               </div>
-              <p>Destroying the model fires a <code>remove</code> event on the model&#39;s collection,
-which forces an update and removes this <strong>TodoListItemComponent</strong> from the
-DOM. We don&#39;t have to do any other cleanup!</p>
+              <p>Listen to all events on this component’s collection or model and force an
+update when they fire. Let React decide whether the DOM should change.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  destroy: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    <span class="keyword">this</span>.props.model.destroy();
+            <div class="content"><div class='highlight'><pre>  componentDidMount: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">this</span>._boundForceUpdate = <span class="hljs-keyword">this</span>.forceUpdate.bind(<span class="hljs-keyword">this</span>, <span class="hljs-literal">null</span>);
+    <span class="hljs-keyword">this</span>.getResource().on(<span class="hljs-string">"all"</span>, <span class="hljs-keyword">this</span>._boundForceUpdate, <span class="hljs-keyword">this</span>);
   },</pre></div></div>
             
         </li>
@@ -336,19 +311,15 @@ DOM. We don&#39;t have to do any other cleanup!</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-20">&#182;</a>
               </div>
-              <p>Stop editing if the input gets an &quot;Enter&quot; keypress.</p>
+              <p>Clean up the listener when the component will be removed.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  handleEditKeyPress: <span class="function"><span class="keyword">function</span><span class="params">(event)</span> {</span>
-    <span class="keyword">if</span> (<span class="number">13</span> === event.keyCode) {
-      <span class="keyword">this</span>.stopEditing();
-    }
-  },
+            <div class="content"><div class='highlight'><pre>  componentWillUnmount: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">this</span>.getResource().off(<span class="hljs-string">"all"</span>, <span class="hljs-keyword">this</span>._boundForceUpdate);
+  }
 
-  render: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    <span class="keyword">var</span> inputStyles = {};
-    <span class="keyword">var</span> viewStyles = {};</pre></div></div>
+};</pre></div></div>
             
         </li>
         
@@ -359,12 +330,9 @@ DOM. We don&#39;t have to do any other cleanup!</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-21">&#182;</a>
               </div>
-              <p>Hide the <code>.view</code> when editing</p>
+              <h2 id="todo-list-item-component">Todo List Item Component</h2>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre>    <span class="keyword">if</span> (<span class="keyword">this</span>.props.editing) {
-      viewStyles.display = <span class="string">"none"</span>;</pre></div></div>
             
         </li>
         
@@ -375,34 +343,8 @@ DOM. We don&#39;t have to do any other cleanup!</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-22">&#182;</a>
               </div>
-              <p>... and hide the <code>&lt;input&gt;</code> when not editing</p>
-
+              
             </div>
-            
-            <div class="content"><div class='highlight'><pre>    } <span class="keyword">else</span> {
-      inputStyles.display = <span class="string">"none"</span>;
-    }
-
-    <span class="keyword">return</span> (
-      <span class="xml"><span class="tag">&lt;<span class="title">li</span> <span class="attribute">className</span>=<span class="value">{this.props.model.get("done")</span> ? "<span class="attribute">done</span>" <span class="attribute">:</span> ""}&gt;</span>
-        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">className</span>=<span class="value">"view"</span> <span class="attribute">onDoubleClick</span>=<span class="value">{this.startEditing}</span> <span class="attribute">style</span>=<span class="value">{viewStyles}</span>&gt;</span>
-          <span class="tag">&lt;<span class="title">input</span> <span class="attribute">className</span>=<span class="value">"toggle"</span> <span class="attribute">type</span>=<span class="value">"checkbox"</span>
-            <span class="attribute">checked</span>=<span class="value">{this.props.model.get("done")}</span>
-            <span class="attribute">onChange</span>=<span class="value">{this.toggleDone}</span> /&gt;</span>
-          <span class="tag">&lt;<span class="title">label</span>&gt;</span>{this.props.model.get("title")}<span class="tag">&lt;/<span class="title">label</span>&gt;</span>
-          <span class="tag">&lt;<span class="title">a</span> <span class="attribute">className</span>=<span class="value">"destroy"</span> <span class="attribute">onClick</span>=<span class="value">{this.destroy}</span>&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-        <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">input</span> <span class="attribute">className</span>=<span class="value">"edit"</span> <span class="attribute">ref</span>=<span class="value">"editInput"</span> <span class="attribute">type</span>=<span class="value">"text"</span>
-          <span class="attribute">onBlur</span>=<span class="value">{this.stopEditing}</span>
-          <span class="attribute">onChange</span>=<span class="value">{this.setTitle}</span>
-          <span class="attribute">onKeyPress</span>=<span class="value">{this.handleEditKeyPress}</span>
-          <span class="attribute">style</span>=<span class="value">{inputStyles}</span>
-          <span class="attribute">value</span>=<span class="value">{this.props.model.get("title")}</span> /&gt;</span>
-      <span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-    );
-  },
-
-</span></pre></div></div>
             
         </li>
         
@@ -413,13 +355,11 @@ DOM. We don&#39;t have to do any other cleanup!</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-23">&#182;</a>
               </div>
-              <p>Set the title of this item&#39;s model when the value of the <code>&lt;input&gt;</code> changes.</p>
+              <p>The DOM for a todo item…</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  setTitle: <span class="function"><span class="keyword">function</span><span class="params">(event)</span> {</span>
-    <span class="keyword">this</span>.props.model.set(<span class="string">"title"</span>, event.target.value);
-  },</pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> TodoListItemComponent = React.createClass({</pre></div></div>
             
         </li>
         
@@ -430,12 +370,14 @@ DOM. We don&#39;t have to do any other cleanup!</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-24">&#182;</a>
               </div>
-              <p>Tell the parent component this list item is entering edit mode.</p>
+              <p>If the component updates and is in edit mode, send focus to the <code>&lt;input&gt;</code>.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  startEditing: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    <span class="keyword">this</span>.props.onStartEditing(<span class="keyword">this</span>.props.model.id);
+            <div class="content"><div class='highlight'><pre>  componentDidUpdate: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(prevProps)</span> </span>{
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.props.editing &amp;&amp; !prevProps.editing) {
+      <span class="hljs-keyword">this</span>.refs.editInput.getDOMNode().focus();
+    }
   },</pre></div></div>
             
         </li>
@@ -447,19 +389,15 @@ DOM. We don&#39;t have to do any other cleanup!</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-25">&#182;</a>
               </div>
-              <p>Exit edit mode.</p>
+              <p>Destroying the model fires a <code>remove</code> event on the model’s collection,
+which forces an update and removes this <strong>TodoListItemComponent</strong> from the
+DOM. We don’t have to do any other cleanup!</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  stopEditing: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    <span class="keyword">this</span>.props.onStopEditing(<span class="keyword">this</span>.props.model.id);
-  },
-
-  toggleDone: <span class="function"><span class="keyword">function</span><span class="params">(event)</span> {</span>
-    <span class="keyword">this</span>.props.model.set(<span class="string">"done"</span>, event.target.checked);
-  }
-
-});</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  destroy: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">this</span>.props.model.destroy();
+  },</pre></div></div>
             
         </li>
         
@@ -470,9 +408,19 @@ DOM. We don&#39;t have to do any other cleanup!</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-26">&#182;</a>
               </div>
-              <h2 id="todo-list-component">Todo List Component</h2>
+              <p>Stop editing if the input gets an “Enter” keypress.</p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre>  handleEditKeyPress: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(event)</span> </span>{
+    <span class="hljs-keyword">if</span> (<span class="hljs-number">13</span> === event.keyCode) {
+      <span class="hljs-keyword">this</span>.stopEditing();
+    }
+  },
+
+  render: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">var</span> inputStyles = {};
+    <span class="hljs-keyword">var</span> viewStyles = {};</pre></div></div>
             
         </li>
         
@@ -483,11 +431,12 @@ DOM. We don&#39;t have to do any other cleanup!</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-27">&#182;</a>
               </div>
-              <p>Renders a list of todos.</p>
+              <p>Hide the <code>.view</code> when editing</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="keyword">var</span> TodoListComponent = React.createClass({</pre></div></div>
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.props.editing) {
+      viewStyles.display = <span class="hljs-string">"none"</span>;</pre></div></div>
             
         </li>
         
@@ -498,15 +447,34 @@ DOM. We don&#39;t have to do any other cleanup!</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-28">&#182;</a>
               </div>
-              <p>Start with no list item in edit mode.</p>
+              <p>… and hide the <code>&lt;input&gt;</code> when not editing</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  getInitialState: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    <span class="keyword">return</span> {
-      editingModelId: <span class="literal">null</span>
-    };
-  },</pre></div></div>
+            <div class="content"><div class='highlight'><pre>    } <span class="hljs-keyword">else</span> {
+      inputStyles.display = <span class="hljs-string">"none"</span>;
+    }
+
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">li</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">{this.props.model.get("done")</span> ? "<span class="hljs-attribute">done</span>" <span class="hljs-attribute">:</span> ""}&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"view"</span> <span class="hljs-attribute">onDoubleClick</span>=<span class="hljs-value">{this.startEditing}</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">{viewStyles}</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"toggle"</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"checkbox"</span>
+            <span class="hljs-attribute">checked</span>=<span class="hljs-value">{this.props.model.get("done")}</span>
+            <span class="hljs-attribute">onChange</span>=<span class="hljs-value">{this.toggleDone}</span> /&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">label</span>&gt;</span>{this.props.model.get("title")}<span class="hljs-tag">&lt;/<span class="hljs-title">label</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"destroy"</span> <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{this.destroy}</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"edit"</span> <span class="hljs-attribute">ref</span>=<span class="hljs-value">"editInput"</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text"</span>
+          <span class="hljs-attribute">onBlur</span>=<span class="hljs-value">{this.stopEditing}</span>
+          <span class="hljs-attribute">onChange</span>=<span class="hljs-value">{this.setTitle}</span>
+          <span class="hljs-attribute">onKeyPress</span>=<span class="hljs-value">{this.handleEditKeyPress}</span>
+          <span class="hljs-attribute">style</span>=<span class="hljs-value">{inputStyles}</span>
+          <span class="hljs-attribute">value</span>=<span class="hljs-value">{this.props.model.get("title")}</span> /&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+    );
+  },
+
+</span></pre></div></div>
             
         </li>
         
@@ -517,27 +485,13 @@ DOM. We don&#39;t have to do any other cleanup!</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-29">&#182;</a>
               </div>
-              <p>When a <code>TodoListItemComponent</code> starts editing, it passes its model&#39;s ID to
-this callback. Setting the state triggers this component to re-render and
-render that <code>TodoListItemComponent</code> in edit mode.</p>
+              <p>Set the title of this item’s model when the value of the <code>&lt;input&gt;</code> changes.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  setEditingModelId: <span class="function"><span class="keyword">function</span><span class="params">(modelId)</span> {</span>
-    <span class="keyword">this</span>.setState({editingModelId: modelId});
-  },
-
-  unsetEditingModelId: <span class="function"><span class="keyword">function</span><span class="params">(modelId)</span> {</span>
-    <span class="keyword">if</span> (modelId === <span class="keyword">this</span>.state.editingModelId) {
-      <span class="keyword">this</span>.setState({editingModelId: <span class="literal">null</span>});
-    }
-  },
-
-  render: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    <span class="keyword">return</span> (
-      <span class="xml"><span class="tag">&lt;<span class="title">ul</span> <span class="attribute">id</span>=<span class="value">"todo-list"</span>&gt;</span>
-        {this.props.collection.map(function(model) {
-</span></pre></div></div>
+            <div class="content"><div class='highlight'><pre>  setTitle: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(event)</span> </span>{
+    <span class="hljs-keyword">this</span>.props.model.set(<span class="hljs-string">"title"</span>, event.target.value);
+  },</pre></div></div>
             
         </li>
         
@@ -548,28 +502,13 @@ render that <code>TodoListItemComponent</code> in edit mode.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-30">&#182;</a>
               </div>
-              <p>Pass the <code>key</code> attribute[1] a unique ID so React can track the
-elements properly.</p>
-<p>[1] <a href="http://facebook.github.io/react/docs/multiple-components.html#dynamic-children">http://facebook.github.io/react/docs/multiple-components.html#dynamic-children</a></p>
+              <p>Tell the parent component this list item is entering edit mode.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>          <span class="keyword">return</span> (
-            <span class="xml"><span class="tag">&lt;<span class="title">TodoListItemComponent
-</span>              <span class="attribute">editing</span>=<span class="value">{this.state.editingModelId</span> =<span class="value">==</span> <span class="attribute">model.id</span>}
-              <span class="attribute">key</span>=<span class="value">{model.id}</span>
-              <span class="attribute">model</span>=<span class="value">{model}</span>
-              <span class="attribute">onStartEditing</span>=<span class="value">{this.setEditingModelId}</span>
-              <span class="attribute">onStopEditing</span>=<span class="value">{this.unsetEditingModelId}</span> /&gt;</span>
-          );
-        }, this)}
-      <span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
-    );
-  }
-
-});
-
-</span></pre></div></div>
+            <div class="content"><div class='highlight'><pre>  startEditing: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">this</span>.props.onStartEditing(<span class="hljs-keyword">this</span>.props.model.id);
+  },</pre></div></div>
             
         </li>
         
@@ -580,9 +519,19 @@ elements properly.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-31">&#182;</a>
               </div>
-              <h2 id="footer-component">Footer Component</h2>
+              <p>Exit edit mode.</p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre>  stopEditing: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">this</span>.props.onStopEditing(<span class="hljs-keyword">this</span>.props.model.id);
+  },
+
+  toggleDone: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(event)</span> </span>{
+    <span class="hljs-keyword">this</span>.props.model.set(<span class="hljs-string">"done"</span>, event.target.checked);
+  }
+
+});</pre></div></div>
             
         </li>
         
@@ -593,14 +542,9 @@ elements properly.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-32">&#182;</a>
               </div>
-              <p>The footer shows the total number of todos and how many are completed.</p>
+              <h2 id="todo-list-component">Todo List Component</h2>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre><span class="keyword">var</span> FooterComponent = React.createClass({
-
-  render: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    <span class="keyword">var</span> clearCompletedStyles = {};</pre></div></div>
             
         </li>
         
@@ -611,14 +555,8 @@ elements properly.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-33">&#182;</a>
               </div>
-              <p>Hide the &quot;Clear X completed items&quot; button if there are no completed
-items.</p>
-
+              
             </div>
-            
-            <div class="content"><div class='highlight'><pre>    <span class="keyword">if</span> (<span class="number">0</span> === <span class="keyword">this</span>.props.itemsDoneCount) {
-      clearCompletedStyles.display = <span class="string">"none"</span>;
-    }</pre></div></div>
             
         </li>
         
@@ -629,29 +567,11 @@ items.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-34">&#182;</a>
               </div>
-              <p>Clicking the &quot;Clear X completed items&quot; button calls the
-&quot;clearCompletedItems&quot; function passed in on <code>props</code>.</p>
+              <p>Renders a list of todos.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    <span class="keyword">return</span> (
-      <span class="xml"><span class="tag">&lt;<span class="title">footer</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">a</span> <span class="attribute">id</span>=<span class="value">"clear-completed"</span> <span class="attribute">style</span>=<span class="value">{clearCompletedStyles}</span>
-            <span class="attribute">onClick</span>=<span class="value">{this.props.clearCompletedItems}</span>&gt;</span>
-          Clear {this.props.itemsDoneCount} completed
-          {1 === this.props.itemsDoneCount ? " item" : " items"}
-        <span class="tag">&lt;/<span class="title">a</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">className</span>=<span class="value">"todo-count"</span>&gt;</span>
-          <span class="tag">&lt;<span class="title">b</span>&gt;</span>{this.props.itemsRemainingCount}<span class="tag">&lt;/<span class="title">b</span>&gt;</span>
-          {1 === this.props.itemsRemainingCount ? " item" : " items"} left
-        <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-      <span class="tag">&lt;/<span class="title">footer</span>&gt;</span>
-    );
-  }
-
-});
-
-</span></pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> TodoListComponent = React.createClass({</pre></div></div>
             
         </li>
         
@@ -662,9 +582,15 @@ items.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-35">&#182;</a>
               </div>
-              <h2 id="main-component">Main Component</h2>
+              <p>Start with no list item in edit mode.</p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre>  getInitialState: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> {
+      editingModelId: <span class="hljs-literal">null</span>
+    };
+  },</pre></div></div>
             
         </li>
         
@@ -675,11 +601,27 @@ items.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-36">&#182;</a>
               </div>
-              <p>The main component contains the list of todos and the footer.</p>
+              <p>When a <code>TodoListItemComponent</code> starts editing, it passes its model’s ID to
+this callback. Setting the state triggers this component to re-render and
+render that <code>TodoListItemComponent</code> in edit mode.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="keyword">var</span> MainComponent = React.createClass({</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  setEditingModelId: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(modelId)</span> </span>{
+    <span class="hljs-keyword">this</span>.setState({editingModelId: modelId});
+  },
+
+  unsetEditingModelId: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(modelId)</span> </span>{
+    <span class="hljs-keyword">if</span> (modelId === <span class="hljs-keyword">this</span>.state.editingModelId) {
+      <span class="hljs-keyword">this</span>.setState({editingModelId: <span class="hljs-literal">null</span>});
+    }
+  },
+
+  render: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"todo-list"</span>&gt;</span>
+        {this.props.collection.map(function(model) {
+</span></pre></div></div>
             
         </li>
         
@@ -690,16 +632,28 @@ items.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-37">&#182;</a>
               </div>
-              <p>Tell the <strong>App</strong> to toggle the <em>done</em> state of all <strong>Todo</strong> items.</p>
+              <p>Pass the <code>key</code> attribute[1] a unique ID so React can track the
+elements properly.</p>
+<p>[1] <a href="http://facebook.github.io/react/docs/multiple-components.html#dynamic-children">http://facebook.github.io/react/docs/multiple-components.html#dynamic-children</a></p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  toggleAllItemsCompleted: <span class="function"><span class="keyword">function</span><span class="params">(event)</span> {</span>
-    <span class="keyword">this</span>.props.toggleAllItemsCompleted(event.target.checked);
-  },
+            <div class="content"><div class='highlight'><pre>          <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">TodoListItemComponent</span>
+              <span class="hljs-attribute">editing</span>=<span class="hljs-value">{this.state.editingModelId</span> =<span class="hljs-value">==</span> <span class="hljs-attribute">model.id</span>}
+              <span class="hljs-attribute">key</span>=<span class="hljs-value">{model.id}</span>
+              <span class="hljs-attribute">model</span>=<span class="hljs-value">{model}</span>
+              <span class="hljs-attribute">onStartEditing</span>=<span class="hljs-value">{this.setEditingModelId}</span>
+              <span class="hljs-attribute">onStopEditing</span>=<span class="hljs-value">{this.unsetEditingModelId}</span> /&gt;</span>
+          );
+        }, this)}
+      <span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span>
+    );
+  }
 
-  render: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    <span class="keyword">var</span> style = {};</pre></div></div>
+});
+
+</span></pre></div></div>
             
         </li>
         
@@ -710,29 +664,183 @@ items.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-38">&#182;</a>
               </div>
-              <p>Hide the &quot;Mark all as complete&quot; button and the footer if there are no
+              <h2 id="footer-component">Footer Component</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-39">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-39">&#182;</a>
+              </div>
+              
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-40">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-40">&#182;</a>
+              </div>
+              <p>The footer shows the total number of todos and how many are completed.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> FooterComponent = React.createClass({
+
+  render: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">var</span> clearCompletedStyles = {};</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-41">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-41">&#182;</a>
+              </div>
+              <p>Hide the “Clear X completed items” button if there are no completed
+items.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">if</span> (<span class="hljs-number">0</span> === <span class="hljs-keyword">this</span>.props.itemsDoneCount) {
+      clearCompletedStyles.display = <span class="hljs-string">"none"</span>;
+    }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-42">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-42">&#182;</a>
+              </div>
+              <p>Clicking the “Clear X completed items” button calls the
+“clearCompletedItems” function passed in on <code>props</code>.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">footer</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"clear-completed"</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">{clearCompletedStyles}</span>
+            <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{this.props.clearCompletedItems}</span>&gt;</span>
+          Clear {this.props.itemsDoneCount} completed
+          {1 === this.props.itemsDoneCount ? " item" : " items"}
+        <span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"todo-count"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">b</span>&gt;</span>{this.props.itemsRemainingCount}<span class="hljs-tag">&lt;/<span class="hljs-title">b</span>&gt;</span>
+          {1 === this.props.itemsRemainingCount ? " item" : " items"} left
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-title">footer</span>&gt;</span>
+    );
+  }
+
+});
+
+</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-43">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-43">&#182;</a>
+              </div>
+              <h2 id="main-component">Main Component</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-44">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-44">&#182;</a>
+              </div>
+              
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-45">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-45">&#182;</a>
+              </div>
+              <p>The main component contains the list of todos and the footer.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> MainComponent = React.createClass({</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-46">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-46">&#182;</a>
+              </div>
+              <p>Tell the <strong>App</strong> to toggle the <em>done</em> state of all <strong>Todo</strong> items.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  toggleAllItemsCompleted: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(event)</span> </span>{
+    <span class="hljs-keyword">this</span>.props.toggleAllItemsCompleted(event.target.checked);
+  },
+
+  render: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">var</span> style = {};</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-47">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-47">&#182;</a>
+              </div>
+              <p>Hide the “Mark all as complete” button and the footer if there are no
 <strong>Todo</strong> items.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    <span class="keyword">if</span> (<span class="number">0</span> === <span class="keyword">this</span>.props.collection.length) {
-      style.display = <span class="string">"none"</span>;
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">if</span> (<span class="hljs-number">0</span> === <span class="hljs-keyword">this</span>.props.collection.length) {
+      style.display = <span class="hljs-string">"none"</span>;
     }
 
-    <span class="keyword">return</span> (
-      <span class="xml"><span class="tag">&lt;<span class="title">section</span> <span class="attribute">id</span>=<span class="value">"main"</span> <span class="attribute">style</span>=<span class="value">{style}</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">input</span> <span class="attribute">id</span>=<span class="value">"toggle-all"</span> <span class="attribute">type</span>=<span class="value">"checkbox"</span>
-          <span class="attribute">checked</span>=<span class="value">{0</span> =<span class="value">==</span> <span class="attribute">this.props.collection.remaining</span>()<span class="attribute">.length</span>}
-          <span class="attribute">onChange</span>=<span class="value">{this.toggleAllItemsCompleted}</span> /&gt;</span>
-        <span class="tag">&lt;<span class="title">label</span> <span class="attribute">htmlFor</span>=<span class="value">"toggle-all"</span>&gt;</span>
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">section</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"main"</span> <span class="hljs-attribute">style</span>=<span class="hljs-value">{style}</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"toggle-all"</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"checkbox"</span>
+          <span class="hljs-attribute">checked</span>=<span class="hljs-value">{0</span> =<span class="hljs-value">==</span> <span class="hljs-attribute">this.props.collection.remaining</span>()<span class="hljs-attribute">.length</span>}
+          <span class="hljs-attribute">onChange</span>=<span class="hljs-value">{this.toggleAllItemsCompleted}</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">label</span> <span class="hljs-attribute">htmlFor</span>=<span class="hljs-value">"toggle-all"</span>&gt;</span>
           Mark all as complete
-        <span class="tag">&lt;/<span class="title">label</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">TodoListComponent</span> <span class="attribute">collection</span>=<span class="value">{this.props.collection}</span> /&gt;</span>
-        <span class="tag">&lt;<span class="title">FooterComponent
-</span>          <span class="attribute">clearCompletedItems</span>=<span class="value">{this.props.clearCompletedItems}</span>
-          <span class="attribute">itemsRemainingCount</span>=<span class="value">{this.props.collection.remaining().length}</span>
-          <span class="attribute">itemsDoneCount</span>=<span class="value">{this.props.collection.done().length}</span> /&gt;</span>
-      <span class="tag">&lt;/<span class="title">section</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">label</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">TodoListComponent</span> <span class="hljs-attribute">collection</span>=<span class="hljs-value">{this.props.collection}</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">FooterComponent</span>
+          <span class="hljs-attribute">clearCompletedItems</span>=<span class="hljs-value">{this.props.clearCompletedItems}</span>
+          <span class="hljs-attribute">itemsRemainingCount</span>=<span class="hljs-value">{this.props.collection.remaining().length}</span>
+          <span class="hljs-attribute">itemsDoneCount</span>=<span class="hljs-value">{this.props.collection.done().length}</span> /&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-title">section</span>&gt;</span>
     );
   }
 
@@ -745,151 +853,151 @@ var AppComponent = React.createClass({
         </li>
         
         
-        <li id="section-39">
+        <li id="section-48">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-39">&#182;</a>
+                <a class="pilcrow" href="#section-48">&#182;</a>
               </div>
               <p>Clear all done todo items, destroying their models.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  clearCompletedItems: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    _.invoke(<span class="keyword">this</span>.props.collection.done(), <span class="string">"destroy"</span>);
+            <div class="content"><div class='highlight'><pre>  clearCompletedItems: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    _.invoke(<span class="hljs-keyword">this</span>.props.collection.done(), <span class="hljs-string">"destroy"</span>);
   },</pre></div></div>
             
         </li>
         
         
-        <li id="section-40">
+        <li id="section-49">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-40">&#182;</a>
+                <a class="pilcrow" href="#section-49">&#182;</a>
               </div>
               <p>Fetch Todos before the App is rendered to the DOM.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  componentWillMount: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    <span class="keyword">this</span>.props.collection.fetch();
+            <div class="content"><div class='highlight'><pre>  componentWillMount: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">this</span>.props.collection.fetch();
   },</pre></div></div>
             
         </li>
         
         
-        <li id="section-41">
+        <li id="section-50">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-41">&#182;</a>
+                <a class="pilcrow" href="#section-50">&#182;</a>
               </div>
               <p>Start the app with a blank <code>&lt;input&gt;</code>.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  getInitialState: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    <span class="keyword">return</span> {
-      title: <span class="string">""</span>
+            <div class="content"><div class='highlight'><pre>  getInitialState: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> {
+      title: <span class="hljs-string">""</span>
     };
   },</pre></div></div>
             
         </li>
         
         
-        <li id="section-42">
+        <li id="section-51">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-42">&#182;</a>
+                <a class="pilcrow" href="#section-51">&#182;</a>
               </div>
-              <p>Used by the <strong>BackboneMixin</strong> to watch for changes on this component&#39;s
+              <p>Used by the <strong>BackboneMixin</strong> to watch for changes on this component’s
 resource.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  getResource: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    <span class="keyword">return</span> <span class="keyword">this</span>.props.collection;
+            <div class="content"><div class='highlight'><pre>  getResource: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.props.collection;
   },</pre></div></div>
             
         </li>
         
         
-        <li id="section-43">
+        <li id="section-52">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-43">&#182;</a>
+                <a class="pilcrow" href="#section-52">&#182;</a>
               </div>
               <p>Set the state of the title when the <code>&lt;input&gt;</code> is changed.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  handleTitleChange: <span class="function"><span class="keyword">function</span><span class="params">(event)</span> {</span>
-    <span class="keyword">this</span>.setState({title: event.target.value});
+            <div class="content"><div class='highlight'><pre>  handleTitleChange: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(event)</span> </span>{
+    <span class="hljs-keyword">this</span>.setState({title: event.target.value});
   },</pre></div></div>
             
         </li>
         
         
-        <li id="section-44">
+        <li id="section-53">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-44">&#182;</a>
+                <a class="pilcrow" href="#section-53">&#182;</a>
               </div>
-              <p>If &quot;Enter&quot; is pressed in the main input field, create a new <strong>Todo</strong>
-in <em>localStorage</em>.</p>
+              <p>If “Enter” is pressed in the main input field, it will submit the form.
+Create a new <strong>Todo</strong> in <em>localStorage</em> and reset the title.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  handleTitleKeyPress: <span class="function"><span class="keyword">function</span><span class="params">(event)</span> {</span>
-    <span class="keyword">if</span> (<span class="number">13</span> !== event.keyCode) <span class="keyword">return</span>;
+            <div class="content"><div class='highlight'><pre>  handleTitleFormSubmit: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(event)</span> </span>{
+    event.preventDefault();
 
-    <span class="keyword">var</span> title = event.target.value;
-    <span class="keyword">if</span> (<span class="string">""</span> === title) <span class="keyword">return</span>;
+    <span class="hljs-keyword">if</span> (<span class="hljs-string">""</span> === <span class="hljs-keyword">this</span>.state.title) <span class="hljs-keyword">return</span>;
 
-    <span class="keyword">this</span>.props.collection.create({title: title});
-    <span class="keyword">this</span>.setState({title: <span class="string">""</span>});
+    <span class="hljs-keyword">this</span>.props.collection.create({title: <span class="hljs-keyword">this</span>.state.title});
+    <span class="hljs-keyword">this</span>.setState({title: <span class="hljs-string">""</span>});
   },
 
-  toggleAllItemsCompleted: <span class="function"><span class="keyword">function</span><span class="params">(completed)</span> {</span>
-    <span class="keyword">this</span>.props.collection.each(<span class="function"><span class="keyword">function</span><span class="params">(todo)</span> {</span>
-      todo.save({<span class="string">"done"</span>: completed});
+  toggleAllItemsCompleted: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(completed)</span> </span>{
+    <span class="hljs-keyword">this</span>.props.collection.each(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(todo)</span> </span>{
+      todo.save({<span class="hljs-string">"done"</span>: completed});
     });
   },</pre></div></div>
             
         </li>
         
         
-        <li id="section-45">
+        <li id="section-54">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-45">&#182;</a>
+                <a class="pilcrow" href="#section-54">&#182;</a>
               </div>
-              <p>Force updates whenever this <strong>App</strong>&#39;s collection receives events.</p>
+              <p>Force updates whenever this <strong>App</strong>‘s collection receives events.</p>
 
             </div>
             
             <div class="content"><div class='highlight'><pre>  mixins: [BackboneMixin],
 
-  render: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-    <span class="keyword">return</span> (
-      <span class="xml"><span class="tag">&lt;<span class="title">div</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">header</span>&gt;</span>
-          <span class="tag">&lt;<span class="title">h1</span>&gt;</span>Todos<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
-          <span class="tag">&lt;<span class="title">input</span> <span class="attribute">placeholder</span>=<span class="value">"What needs to be done?"</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">name</span>=<span class="value">"title"</span>
-            <span class="attribute">onChange</span>=<span class="value">{this.handleTitleChange}</span>
-            <span class="attribute">onKeyPress</span>=<span class="value">{this.handleTitleKeyPress}</span>
-            <span class="attribute">value</span>=<span class="value">{this.state.title}</span> /&gt;</span>
-        <span class="tag">&lt;/<span class="title">header</span>&gt;</span>
-        <span class="tag">&lt;<span class="title">MainComponent
-</span>          <span class="attribute">clearCompletedItems</span>=<span class="value">{this.clearCompletedItems}</span>
-          <span class="attribute">collection</span>=<span class="value">{this.props.collection}</span>
-          <span class="attribute">toggleAllItemsCompleted</span>=<span class="value">{this.toggleAllItemsCompleted}</span> /&gt;</span>
-      <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  render: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">header</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>Todos<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">form</span> <span class="hljs-attribute">onSubmit</span>=<span class="hljs-value">{this.handleTitleFormSubmit}</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">placeholder</span>=<span class="hljs-value">"What needs to be done?"</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text"</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"title"</span>
+              <span class="hljs-attribute">onChange</span>=<span class="hljs-value">{this.handleTitleChange}</span>
+              <span class="hljs-attribute">value</span>=<span class="hljs-value">{this.state.title}</span> /&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-title">form</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">header</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">MainComponent</span>
+          <span class="hljs-attribute">clearCompletedItems</span>=<span class="hljs-value">{this.clearCompletedItems}</span>
+          <span class="hljs-attribute">collection</span>=<span class="hljs-value">{this.props.collection}</span>
+          <span class="hljs-attribute">toggleAllItemsCompleted</span>=<span class="hljs-value">{this.toggleAllItemsCompleted}</span> /&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
     );
   }
 })
@@ -899,18 +1007,18 @@ in <em>localStorage</em>.</p>
         </li>
         
         
-        <li id="section-46">
+        <li id="section-55">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-46">&#182;</a>
+                <a class="pilcrow" href="#section-55">&#182;</a>
               </div>
               <p>Create a new Todo collection and render the <strong>App</strong> into <code>#todoapp</code>.</p>
 
             </div>
             
             <div class="content"><div class='highlight'><pre>React.renderComponent(
-  <span class="xml"><span class="tag">&lt;<span class="title">AppComponent</span> <span class="attribute">collection</span>=<span class="value">{new</span> <span class="attribute">TodoList</span>()} /&gt;</span>,
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">AppComponent</span> <span class="hljs-attribute">collection</span>=<span class="hljs-value">{new</span> <span class="hljs-attribute">TodoList</span>()} /&gt;</span>,
   document.getElementById("todoapp")
 );
 
